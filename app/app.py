@@ -24,8 +24,8 @@ app_port = os.environ.get('APP_PORT', 5050)
 app = Flask(__name__, template_folder='templates')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SECRET_KEY_HMAC'] = 'secret'
-app.config['SECRET_KEY_HMAC_2'] = 'am0r3C0mpl3xK3y'
-app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
+app.config['SECRET_KEY_HMAC_2'] = '02930maudF!'
+app.secret_key = 'Y79!-sj!it$Jpqo909'
 app.config['STATIC_FOLDER'] = None
 
 db = SQLAlchemy(app)
@@ -259,8 +259,7 @@ def search_customer():
                     search_term = content['search']
                     print(search_term)
                     str_query = "SELECT first_name, last_name, username FROM customer WHERE username = '%s';" % search_term
-                    # mycust = Customer.query.filter_by(username = search_term).first()
-                    # return jsonify({'Customer': mycust.username, 'First Name': mycust.first_name}),200
+
 
                     search_query = db.engine.execute(str_query)
                     for result in search_query:
